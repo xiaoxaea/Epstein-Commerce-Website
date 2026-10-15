@@ -8,4 +8,13 @@ INTERFACE
     - WHITE ffd568
 
   FOOTER
-    - 
+    -   
+
+  FONT
+    - DINOROBONG TEXT FONT
+
+DATABASE 
+
+  INVENTORY 
+    - PHP DATA OBJECTS (PDO)
+  
