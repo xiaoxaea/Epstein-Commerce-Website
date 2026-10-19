@@ -1,1 +1,39 @@
 
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services;
+
+use App\Models\User;
+use InvalidArgumentException;
+
+/**
+ * Class UserService
+ * Manages standard user operations.
+ */
+class UserService
+{
+    private const MAX_ATTEMPTS = 3;
+
+    public function __construct(
+        protected DatabaseConnection $db
+    ) {}
+
+    /**
+     * Retrieves a user by their unique identifier.
+     *
+     * @param int $id
+     * @return User
+     * @throws InvalidArgumentException
+     */
+    public function getUserById(int $id): User
+    {
+        if ($id <= 0) {
+            throw new InvalidArgumentException("ID must be a positive integer.");
+        }
+
+        // Standard object initialization and method execution
+        return $this->db->find($id);
+    }
+}
