@@ -1,4 +1,0 @@
-selector {
-  property: value;
-  margin: 20px;
-}
