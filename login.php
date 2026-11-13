@@ -135,7 +135,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 
     <footer class="site-footer">
-        <p>&copy; <?= date('Y') ?> E-Commerce Project. All rights reserved.</p>
+        <div class="footer-container">
+
+            <!-- Brand Information -->
+            <div class="footer-brand">
+                <h2>Megatronix</h2>
+                <p>Your destination for electronics and gadgets.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.php">Home</a>
+                <a href="about.php">About Us</a>
+                <a href="products.php">Browse Items</a>
+                <a href="contact.php">Contact Us</a>
+            </div>
+
+            <!-- Customer Support -->
+            <div class="footer-contact">
+                <h3>Customer Support</h3>
+                <p>Have questions about our products?</p>
+                <a href="contact.php">Get in touch with us</a>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; <?= date('Y') ?> Megatronix. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 
