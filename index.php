@@ -32,57 +32,7 @@ $userRole = $_SESSION['role'] ?? '';
 
 <body>
 
-    <header>
-        <nav>
-            <h2><a href="index.php">Megatronix</a></h2>
-
-            <ul>
-                <li>
-                    <a href="index.php" class="<?= $currentPage === 'index.php' ? 'active' : '' ?>">
-                        <span class="material-symbols-outlined">home</span>
-                        <span>Home</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="about.php" class="<?= $currentPage === 'about.php' ? 'active' : '' ?>">
-                        <span class="material-symbols-outlined">info</span>
-                        <span>About</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="contact.php" class="<?= $currentPage === 'contact.php' ? 'active' : '' ?>">
-                        <span class="material-symbols-outlined">mail</span>
-                        <span>Contact</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="products.php" class="<?= $currentPage === 'products.php' ? 'active' : '' ?>">
-                        <span class="material-symbols-outlined">storefront</span>
-                        <span>Shop</span>
-                    </a>
-                </li>
-
-                <?php if ($isLoggedIn): ?>
-                <li class="profile-dropdown">
-                    <a class="<?= $currentPage === 'profile.php' ? 'active' : '' ?>" href="profile.php">
-                        <span class="material-symbols-outlined">person</span>
-                        <span><?= htmlspecialchars($userName, ENT_QUOTES, 'UTF-8') ?></span>
-                    </a>
-
-                    <ul class="profile-dropdown-menu">
-                        <li><a href="profile.php">Profile</a></li>
-                        <li><a href="cart.php">My Cart</a></li>
-                        <li><a href="my-orders.php">My Orders</a></li>
-                        <li><a href="logout.php">Log Out</a></li>
-                    </ul>
-                </li>
-                <?php endif; ?>
-            </ul>
-        </nav>
-    </header>
+    <?php require __DIR__ . '/includes/header.php'; ?>
 
 
     <main>
@@ -101,6 +51,11 @@ $userRole = $_SESSION['role'] ?? '';
             <p class="signup-text">
                 Ready to shop?
                 <a href="cart.php">View Your Cart</a>
+            </p>
+            <?php elseif ($userRole === 'seller'): ?>
+            <p class="signup-text">
+                Managing your store?
+                <a href="seller/index.php">Go to Your Dashboard</a>
             </p>
             <?php endif; ?>
 
@@ -125,8 +80,6 @@ $userRole = $_SESSION['role'] ?? '';
                 <a href="seller-signup.php">Become a Seller</a>
             </p>
             <?php endif; ?>
-
-            </div>
         </section>
 
         <!-- Featured Brands -->
